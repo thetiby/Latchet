@@ -113,14 +113,14 @@ class Latchet implements WampServerInterface {
 	 */
 	public function connection($controller)
 	{
-		// if(is_subclass_of($controller, '\Sidney\Latchet\BaseConnection'))
-		// {
+		if(is_subclass_of($controller, '\Sidney\Latchet\BaseConnection'))
+		{
 			$this->connectionEventHandler = new ConnectionEventHandler($this->getCallback($controller));
-		// }
-		// else
-		// {
-		// 	throw new LatchetException($controller . " has to extend BaseConnection");
-		// }
+		}
+		else
+		{
+			throw new LatchetException($controller . " has to extend BaseConnection");
+		}
 	}
 
 	/**
